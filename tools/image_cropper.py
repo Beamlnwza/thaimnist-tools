@@ -1,11 +1,16 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+import os
+from utils import path_range
 
 
 class ImageCropperApp:
-    def __init__(self, master, image_path):
+    def __init__(self, master, image_path, output_path):
         self.master = master
         self.master.title("Image Cropper")
+
+        self.image_path = image_path
+        self.output_path = output_path
 
         self.image = Image.open(image_path)
         self.zoom_percentage = 50
@@ -67,13 +72,32 @@ class ImageCropperApp:
             y1 = int(max(self.start_y, self.canvas.coords(self.rect)[3]))
 
             cropped_image = self.image.crop((x0, y0, x1, y1))
-            save_path = "cropped_image2.png"  # Change the path as needed
+            save_path = os.path.join(
+                self.output_path, os.path.basename(self.image_path)
+            )
             cropped_image.save(save_path)
             print(f"Image saved at {save_path} : size: {cropped_image.size}")
-            self.master.destroy()  # Close the Tkinter window after the cropping is done
+            self.master.destroy()
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = ImageCropperApp(root, "Document_20231014_0002.png")
-    root.mainloop()
+    for i in path_range("./preprocess_data/{}.jpg", range(11, 21)):
+        root = tk.Tk()
+        app = ImageCropperApp(root, i, "./area_data")
+        root.mainloop()
+
+# 1-11 done
+# 11-21
+# 21-31
+# 31-41
+# 41-51
+# 51-61
+# 61-71
+# 71-81
+# 81-91
+# 91-101
+# 101-111
+# 111-121
+# 121-131
+# 131-141
+# 141-151
