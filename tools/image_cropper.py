@@ -81,7 +81,7 @@ class ImageCropperApp:
 
 
 if __name__ == "__main__":
-    for i in path_range("./preprocess_data/{}.jpg", range(201, 251)):
+    for i in path_range("./preprocess_data/{}.jpg", range(251, 301)):
         root = tk.Tk()
         root.state("zoomed")
         app = ImageCropperApp(root, i, "./area_data")
