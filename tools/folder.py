@@ -7,4 +7,4 @@ def create_folder_index(range, folder_name):
 
 
 if __name__ == "__main__":
-    create_folder_index(range(0, 54), "./box_data")
+    create_folder_index(range(0, 45), "./postprocess_data\letter")
