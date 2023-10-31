@@ -14,6 +14,7 @@ class ImageProcessor:
         self.contrast = 1.5
         self.threshold = 233
 
+        self.unedited_image = Image.open(image_path)
         self.image = self.load_and_process_image(image_path)
 
         self.setup_canvas()
@@ -93,9 +94,9 @@ class ImageProcessor:
 
 
 if __name__ == "__main__":
-    image_path = "./box_data/06/299.jpg"  # Replace with the path to your image
+    image_path = "./box_data/14/015.jpg"  # Replace with the path to your image
     root = tk.Tk()
     image_processor = ImageProcessor(root, image_path)
     root.mainloop()
 
-    # 0.9 2.0 191
+    # 1.0 1.7 225
