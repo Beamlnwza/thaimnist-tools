@@ -110,7 +110,7 @@ class ImagePainter:
 
 
 if __name__ == "__main__":
-    main_path = "./box_data/22"
+    main_path = "./box_data/00"
     main_output_path = f"./uncenter_data/{main_path[-2:]}"
 
     for i in sorted(os.listdir(main_path)):
@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     # command to handle for in list [number, number...]
 
-    """ for i in [221]:
+    """ for i in [211]:
         i = str(i).zfill(3)
         path = os.path.join(main_path, f"{i}.jpg")
         output_path = os.path.join(main_output_path, f"{i}.jpg")
@@ -134,3 +134,5 @@ if __name__ == "__main__":
 
         image_painter = ImagePainter(root, path, output_path)
         root.mainloop() """
+
+# 17,
