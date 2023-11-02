@@ -53,7 +53,6 @@ class ImagePainter:
 
         self.canvas.bind("<Motion>", self.paint)
         self.master.bind("<Button-1>", self.save)
-        # right click to deny
         self.master.bind("<Button-3>", self.deny)
 
     def paint(self, event):
@@ -65,7 +64,6 @@ class ImagePainter:
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.tk_image)
 
     def save(self, event):
-        # Your existing code...
         if not os.path.exists(os.path.dirname(self.output_path)):
             os.makedirs(os.path.dirname(self.output_path))
         self.image = self.image.resize(
@@ -110,8 +108,9 @@ class ImagePainter:
 
 
 if __name__ == "__main__":
-    main_path = "./box_data/00"
-    main_output_path = f"./uncenter_data/{main_path[-2:]}"
+    INDEX = 0
+    main_path = f"./box_data/{INDEX:02d}"
+    main_output_path = f"./uncenter_data/{INDEX:02d}"
 
     for i in sorted(os.listdir(main_path)):
         path = os.path.join(main_path, i)
@@ -121,18 +120,3 @@ if __name__ == "__main__":
 
         image_painter = ImagePainter(root, path, output_path)
         root.mainloop()
-
-    # command to handle for in list [number, number...]
-
-    """ for i in [211]:
-        i = str(i).zfill(3)
-        path = os.path.join(main_path, f"{i}.jpg")
-        output_path = os.path.join(main_output_path, f"{i}.jpg")
-        root = tk.Tk()
-
-        root.state("zoomed")
-
-        image_painter = ImagePainter(root, path, output_path)
-        root.mainloop() """
-
-# 17,
