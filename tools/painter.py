@@ -26,6 +26,14 @@ class ImagePainter:
         self.setup_canvas()
 
     def load_and_process_image(self, image_path):
+        """This function loads and processes the image.
+
+        Args:
+            image_path (str): Path to the image.
+
+        Returns:
+            Pillow Image: Processed image.
+        """
         image = Image.open(image_path)
         image = image.convert("L")
         image = ImageEnhance.Brightness(image).enhance(self.brightness)
@@ -83,6 +91,15 @@ class ImagePainter:
         self.master.destroy()
 
     def make_white_to_black(self, image):
+        """This function makes white pixels to black if all of its neighbors are black. with
+        pattern of 3x3 star shape.
+
+        Args:
+            image (Pillow Image): Image to be processed.
+
+        Returns:
+            Pillow Image: Processed image.
+        """
         width, height = image.size
         for y in range(height):
             for x in range(width):
